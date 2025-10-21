@@ -18,18 +18,17 @@ const server = http.createServer(app);
 const cors = require('cors')
 const bodyParser = require("body-parser");
 // const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
-// const qrcode = require('qrcode-terminal');
-// const QRCode = require('qrcode');
-
-////// 
-// CORS                
-// app.use(    
-//   cors({
-//     origin: "http://localhost:5174",
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//   }) 
-// );
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5175",
+      "https://glowbynjk.vercel.app", // Replace with your frontend URL
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(cors())
 
 

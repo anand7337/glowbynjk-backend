@@ -644,8 +644,10 @@ const deleteGiftCard = async (req, res) => {
 
     // Send confirmation email (optional)
     const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
+host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+        auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
@@ -722,6 +724,7 @@ await transporter.sendMail({
     res.status(500).json({ message: "Server error" });
   }
 };
+
 
 
 const newsletterGet = async (req, res) => {

@@ -644,10 +644,8 @@ const deleteGiftCard = async (req, res) => {
 
     // Send confirmation email (optional)
     const transporter = nodemailer.createTransport({
- host: "smtp.hostinger.com",
-  port: 465,
-  secure: true, 
-        auth: {
+      service: "gmail",
+      auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
